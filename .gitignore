@@ -2,7 +2,9 @@
 __pycache__/
 *.py[cod]
 
-output/*.csv
+output/**/*.csv
+output/**/ai_audit.html
+output/**/seo_report.html
 !output/.gitkeep
 !output/seo_full_audit_report.html
 !output/seo_full_audit_report.md
