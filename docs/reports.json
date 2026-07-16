@@ -1,0 +1,33 @@
+[
+  {
+    "id": "2026-07-16",
+    "label": "2026-07-16 SEO 報告",
+    "reportDate": "2026-07-16",
+    "site": "https://www.mandarinflorist.com.tw/",
+    "path": "reports/2026-07-16/",
+    "pageCount": 293,
+    "averageScore": 78.4,
+    "grades": {
+      "A": 66,
+      "B": 181,
+      "C": 46,
+      "D": 0
+    },
+    "status": {
+      "200": 293
+    },
+    "issues": {
+      "非 200 狀態碼頁面": 0,
+      "缺少 title": 0,
+      "title 長度需調整": 220,
+      "缺少 meta description": 0,
+      "meta description 長度需調整": 168,
+      "缺少 H1": 47,
+      "多個 H1": 0,
+      "缺少 canonical": 0,
+      "圖片缺少 alt 總數": 4746,
+      "爬取錯誤頁面": 0
+    },
+    "isLatest": true
+  }
+]

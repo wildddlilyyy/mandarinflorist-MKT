@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+output/*.csv
+!output/.gitkeep
+!output/seo_full_audit_report.html
+!output/seo_full_audit_report.md
+!output/seo_report_summary.md

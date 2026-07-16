@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文華花苑 SEO 分析報告</title>
+<style>
+:root{--ink:#172026;--muted:#64748b;--line:#d9e2ec;--paper:#fff;--bg:#f6f7f9;--brand:#295548;--brand2:#7a4d2d;--soft:#eef5f1;--warn:#fff6dc;--bad:#fff1f2}
+*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",Arial,sans-serif;margin:0;color:var(--ink);background:var(--bg)}header{background:var(--brand);color:#fff;padding:34px 48px}main{padding:26px 48px 56px}h1{margin:0 0 8px;font-size:32px;letter-spacing:0}h2{margin:34px 0 14px;color:var(--brand);font-size:22px}.muted{color:var(--muted)}.sub{line-height:1.7;max-width:960px}.toolbar{display:flex;gap:14px;align-items:end;flex-wrap:wrap;margin-top:22px}.control{display:flex;flex-direction:column;gap:6px}.control label{font-size:13px;color:#d7ede5}.control select{min-width:260px;border:1px solid #b8d5ca;border-radius:6px;padding:10px 12px;background:#fff;color:var(--brand);font-size:15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:20px 0}.card{background:var(--paper);border:1px solid #e2e8f0;border-radius:8px;padding:18px}.label{color:var(--muted);font-size:13px}.value{font-size:28px;font-weight:700;margin-top:6px}.report-card{cursor:pointer;transition:.15s border-color,.15s transform}.report-card:hover{border-color:var(--brand);transform:translateY(-1px)}.report-card.active{border-color:var(--brand);box-shadow:0 0 0 2px #cde6db}.report-title{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--brand)}.report-meta{margin-top:10px;color:#52616b;font-size:13px;line-height:1.6}.note{background:#fff;border-left:4px solid var(--brand2);padding:14px 16px;margin:16px 0;line-height:1.7}.table-wrap{overflow:auto;max-height:720px;border:1px solid var(--line);border-radius:8px;background:#fff}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid #e5e7eb;padding:10px 12px;text-align:left;vertical-align:top;line-height:1.55;max-width:360px;overflow-wrap:anywhere}th{position:sticky;top:0;background:var(--soft);color:var(--brand);z-index:1}tr:hover td{background:#fafafa}.url{min-width:260px;max-width:430px}.desc{min-width:280px;max-width:460px}.rec{min-width:300px;max-width:500px}.rec ul{margin:0;padding-left:18px}.small{font-size:12px;color:var(--muted)}a{color:#116149;text-decoration:underline;text-underline-offset:2px}.pill{display:inline-block;border-radius:999px;padding:2px 8px;background:#e8f3ed;color:var(--brand);font-size:12px}.latest{background:#ffe9b7;color:#6f4b00}.loading{padding:18px;background:#fff;border:1px solid #e2e8f0;border-radius:8px}.error{background:var(--bad);border-left-color:#e11d48;color:#9f1239}.empty{padding:22px;background:#fff;border:1px dashed #bcc8d4;border-radius:8px;color:var(--muted)}
+@media (max-width:720px){header{padding:28px 22px}main{padding:22px}h1{font-size:26px}.control,.control select{width:100%;min-width:0}.toolbar{align-items:stretch}th,td{max-width:280px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>文華花苑 SEO 分析報告</h1>
+  <div id="meta" class="sub">載入報告資料中...</div>
+  <div class="toolbar">
+    <div class="control">
+      <label for="reportSelect">報告日期</label>
+      <select id="reportSelect" disabled><option>載入中...</option></select>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="grid" id="summaryCards"></section>
+  <div class="note">本報告保留完整爬蟲資料，協助業主逐頁檢視 SEO 狀態、分數、問題項目與建議修改方向，作為後續內容調整、技術修正與成效追蹤的依據。</div>
+
+  <h2>歷史報告</h2>
+  <div class="grid" id="reportList"></div>
+
+  <h2>HTTP 狀態碼分布</h2>
+  <div id="statusTable"></div>
+
+  <h2>問題統計</h2>
+  <div id="issueTable"></div>
+
+  <h2>評分方式</h2>
+  <div id="scoreTable"></div>
+
+  <h2>CSV 欄位說明</h2>
+  <div id="fieldTable"></div>
+
+  <h2>優先處理頁面 Top 20</h2>
+  <div id="priorityTable"></div>
+
+  <h2>逐頁完整 SEO 爬蟲內容</h2>
+  <div id="pageTable"></div>
+
+  <h2>建議修改方向</h2>
+  <ol class="sub">
+    <li>優先處理非 200 頁面，修正 404、伺服器錯誤或不必要的轉址，避免搜尋引擎浪費爬取資源。</li>
+    <li>補齊缺少的 title 與 meta description，讓搜尋結果摘要更完整，也方便後續關鍵字布局。</li>
+    <li>確認每頁有清楚且唯一的 H1，並檢查 canonical 是否正確指向主要網址。</li>
+    <li>為重要圖片補上具描述性的 alt 文字，強化圖片 SEO 與無障礙體驗。</li>
+    <li>增加內容相關頁面的內部連結，提升網站結構清楚度與頁面權重傳遞。</li>
+    <li>分數較低或優先順序為「緊急／高」的頁面，建議先列入第一波修正清單。</li>
+  </ol>
+</main>
+<script>
+const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[char]));
+const link = url => url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(url)}</a>` : "";
+const rec = items => `<ul>${(items || []).map(item => `<li>${esc(item)}</li>`).join("")}</ul>`;
+const priorityOrder = {"緊急":0, "高":1, "中":2, "低":3};
+let reports = [];
+
+function table(headers, rows) {
+  if (!rows.length) return `<div class="empty">目前沒有資料。</div>`;
+  return `<div class="table-wrap"><table><thead><tr>${headers.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+
+function clearReportContent(message = "載入中...") {
+  ["summaryCards", "statusTable", "issueTable", "priorityTable", "pageTable"].forEach(id => {
+    document.getElementById(id).innerHTML = `<div class="loading">${esc(message)}</div>`;
+  });
+}
+
+function reportIssueCount(report) {
+  return Object.values(report.issues || {}).reduce((sum, count) => sum + Number(count || 0), 0);
+}
+
+function renderReportSwitcher(activeId) {
+  const select = document.getElementById("reportSelect");
+  select.disabled = false;
+  select.innerHTML = reports.map(report => {
+    const label = `${report.reportDate} SEO 報告${report.isLatest ? "（最新）" : ""}`;
+    return `<option value="${esc(report.id)}"${report.id === activeId ? " selected" : ""}>${esc(label)}</option>`;
+  }).join("");
+
+  document.getElementById("reportList").innerHTML = reports.map(report => `
+    <div class="card report-card ${report.id === activeId ? "active" : ""}" data-report-id="${esc(report.id)}">
+      <div class="report-title">${esc(report.reportDate)}${report.isLatest ? ` <span class="pill latest">最新報告</span>` : ""}</div>
+      <div class="report-meta">
+        平均分數：${esc(report.averageScore)}<br>
+        A / B / C / D：${esc(report.grades?.A ?? 0)} / ${esc(report.grades?.B ?? 0)} / ${esc(report.grades?.C ?? 0)} / ${esc(report.grades?.D ?? 0)}<br>
+        分析頁數：${esc(report.pageCount)}，問題總數：${esc(reportIssueCount(report))}
+      </div>
+    </div>
+  `).join("");
+
+  document.querySelectorAll(".report-card").forEach(card => {
+    card.addEventListener("click", () => loadReport(card.dataset.reportId));
+  });
+}
+
+function renderStaticTables() {
+  document.getElementById("scoreTable").innerHTML = table(
+    ["評分項目", "權重", "判讀方式"],
+    [
+      ["HTTP 狀態碼", "20", "200 為滿分；轉址給部分分數；404、500 或請求失敗為 0。"],
+      ["Title", "15", "檢查是否存在，以及長度是否足以表達主題且不易被截斷。"],
+      ["Meta description", "15", "檢查是否存在，以及是否能作為搜尋結果摘要。"],
+      ["H1", "15", "每頁建議有一個清楚 H1；缺少或過多都會扣分。"],
+      ["Canonical", "10", "檢查是否設定主要網址，避免重複內容分散權重。"],
+      ["圖片 alt", "10", "依缺少 alt 的圖片比例扣分，比例越高越需要優先補強。"],
+      ["內部連結", "10", "檢查頁面是否有足夠的站內連結，避免孤立頁。"],
+      ["爬取錯誤", "5", "若爬取時發生錯誤，代表搜尋引擎可能也無法穩定讀取。"]
+    ].map(row => row.map(esc))
+  );
+
+  document.getElementById("fieldTable").innerHTML = table(
+    ["欄位", "代表意義", "SEO 分析用途"],
+    [
+      ["url", "被爬取的頁面網址。", "用來定位需要修正的頁面，報告中可直接點擊開啟。"],
+      ["status_code", "HTTP 狀態碼。", "判斷頁面是否正常，例如 200、301、404、500。"],
+      ["title / title_length", "頁面 title 與字數。", "檢查搜尋結果標題是否完整且主題清楚。"],
+      ["meta_description / meta_description_length", "頁面描述與字數。", "檢查搜尋結果摘要是否完整、有吸引力。"],
+      ["h1_count / h1_text", "H1 數量與文字。", "判斷頁面主標題是否明確，是否有過多 H1。"],
+      ["canonical", "主要版本網址。", "協助搜尋引擎判斷重複內容的主要頁面。"],
+      ["image_count / images_missing_alt", "圖片數量與缺少 alt 的圖片數。", "評估圖片 SEO 與無障礙文字是否完整。"],
+      ["images_missing_alt_ratio", "缺少 alt 的圖片比例。", "比例越高，代表圖片替代文字越需要優先補強。"],
+      ["internal_links_count", "站內連結數量。", "用來檢查頁面是否容易被搜尋引擎與使用者深入瀏覽。"],
+      ["external_links_count", "外部連結數量。", "協助盤點頁面連到外部網站的狀況。"],
+      ["seo_score / seo_grade", "SEO 分數與 A-D 等級。", "快速判斷每頁基礎 SEO 健康程度。"],
+      ["fix_priority", "修正優先順序。", "依分數與問題嚴重度標示低、中、高、緊急。"],
+      ["recommendations", "建議修改方向。", "提供每頁可執行的修正重點。"],
+      ["error", "爬取錯誤。", "記錄無法正常抓取或非 HTML 的原因。"]
+    ].map(row => row.map(esc))
+  );
+}
+
+async function loadReport(reportId) {
+  const report = reports.find(item => item.id === reportId) || reports.find(item => item.isLatest) || reports[0];
+  if (!report) return;
+
+  clearReportContent();
+  renderReportSwitcher(report.id);
+
+  const base = report.path.endsWith("/") ? report.path : `${report.path}/`;
+  const summary = await fetch(`${base}summary.json`).then(response => response.json());
+  const pages = (await Promise.all(summary.chunks.map(path => fetch(`${base}${path}`).then(response => response.json())))).flat();
+
+  document.getElementById("meta").innerHTML = `分析網址：${link(summary.site)}<br>SEO 報告日期：${esc(summary.reportDate)}，分析頁數：${esc(summary.pageCount)} 頁`;
+  document.getElementById("summaryCards").innerHTML = [
+    ["平均 SEO 分數", summary.averageScore],
+    ["A 級頁數", summary.grades.A],
+    ["B 級頁數", summary.grades.B],
+    ["C 級頁數", summary.grades.C],
+    ["D 級頁數", summary.grades.D],
+    ["缺少 Description", summary.issues["缺少 meta description"]],
+    ["缺少 H1", summary.issues["缺少 H1"]],
+    ["缺少 alt 圖片", summary.issues["圖片缺少 alt 總數"]]
+  ].map(([label, value]) => `<div class="card"><div class="label">${esc(label)}</div><div class="value">${esc(value ?? 0)}</div></div>`).join("");
+
+  document.getElementById("statusTable").innerHTML = table(["狀態碼", "頁數"], Object.entries(summary.status).map(([key, value]) => [esc(key), esc(value)]));
+  document.getElementById("issueTable").innerHTML = table(["問題項目", "數量"], Object.entries(summary.issues).map(([key, value]) => [esc(key), esc(value)]));
+
+  const top = [...pages].sort((a, b) =>
+    (priorityOrder[a.priority] ?? 9) - (priorityOrder[b.priority] ?? 9) ||
+    Number(a.score) - Number(b.score) ||
+    Number(b.missingAlt) - Number(a.missingAlt)
+  ).slice(0, 20);
+
+  document.getElementById("priorityTable").innerHTML = table(
+    ["URL", "分數", "等級", "優先順序", "建議修改方向"],
+    top.map(page => [
+      `<span class="url">${link(page.url)}</span>`,
+      esc(page.score),
+      esc(page.grade),
+      esc(page.priority),
+      `<span class="rec">${rec(page.recommendations)}</span>`
+    ])
+  );
+
+  document.getElementById("pageTable").innerHTML = table(
+    ["#", "URL", "狀態碼", "分數", "等級", "優先順序", "Title", "Title 長度", "Meta Description", "Description 長度", "H1 數量", "H1 文字", "Canonical", "圖片數", "缺少 alt 圖片數", "缺少 alt 比例", "站內連結數", "外部連結數", "建議修改方向", "錯誤"],
+    pages.map((page, index) => [
+      esc(index + 1),
+      `<span class="url">${link(page.url)}</span>`,
+      esc(page.status),
+      esc(page.score),
+      esc(page.grade),
+      esc(page.priority),
+      esc(page.title),
+      esc(page.titleLength),
+      `<span class="desc">${esc(page.description)}</span>`,
+      esc(page.descriptionLength),
+      esc(page.h1Count),
+      esc(page.h1Text),
+      `<span class="url">${link(page.canonical)}</span>`,
+      esc(page.imageCount),
+      esc(page.missingAlt),
+      esc(page.missingAltRatio),
+      esc(page.internalLinks),
+      esc(page.externalLinks),
+      `<span class="rec">${rec(page.recommendations)}</span>`,
+      esc(page.error)
+    ])
+  );
+}
+
+async function init() {
+  renderStaticTables();
+  clearReportContent();
+  try {
+    reports = await fetch("reports.json").then(response => response.json());
+    reports.sort((a, b) => String(b.reportDate).localeCompare(String(a.reportDate)));
+
+    if (!reports.length) {
+      document.getElementById("meta").textContent = "目前尚未產生任何報告。";
+      document.getElementById("summaryCards").innerHTML = `<div class="empty">請先執行爬蟲、評分與 GitHub Pages 報告產生流程。</div>`;
+      document.getElementById("reportList").innerHTML = `<div class="empty">尚無歷史報告。</div>`;
+      clearReportContent("尚無報告資料。");
+      return;
+    }
+
+    document.getElementById("reportSelect").addEventListener("change", event => loadReport(event.target.value));
+    await loadReport((reports.find(report => report.isLatest) || reports[0]).id);
+  } catch (error) {
+    document.getElementById("meta").textContent = "報告載入失敗。";
+    document.getElementById("summaryCards").innerHTML = `<div class="note error">無法載入報告資料，請確認 reports.json 與 docs/reports/ 資料夾是否已正確產生。</div>`;
+    console.error(error);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
