@@ -15,6 +15,7 @@ REPORTS_INDEX = DOCS / "reports.json"
 REPORTS_DIR = DOCS / "reports"
 REPORT_DIR = REPORTS_DIR / REPORT_DATE
 SCORED_CSV = Path("output/seo_report_scored.csv")
+AI_AUDIT_CSV = Path("output/ai_audit.csv")
 RECOMMENDATION_SEPARATOR = "；"
 
 
@@ -36,7 +37,7 @@ def main() -> None:
     print(DOCS / "index.html")
     print(REPORTS_INDEX)
     print(REPORT_DIR / "summary.json")
-    print(f"chunks={len(chunk_paths)} rows={len(records)}")
+    print(f"chunks={len(chunk_paths)} rows={len(records)} ai_audit={bool(summary.get('aiAudit'))}")
 
 
 def prepare_dataframe(df: pd.DataFrame) -> None:
@@ -116,7 +117,7 @@ def write_page_chunks(records: list[dict[str, object]]) -> list[str]:
 
 
 def build_summary(df: pd.DataFrame, chunk_paths: list[str]) -> dict[str, object]:
-    return {
+    summary = {
         "reportDate": REPORT_DATE,
         "site": SITE_URL,
         "title": REPORT_LABEL,
@@ -127,6 +128,10 @@ def build_summary(df: pd.DataFrame, chunk_paths: list[str]) -> dict[str, object]
         "issues": build_issue_counts(df),
         "chunks": chunk_paths,
     }
+    ai_audit = build_ai_audit_summary()
+    if ai_audit:
+        summary["aiAudit"] = ai_audit
+    return summary
 
 
 def build_issue_counts(df: pd.DataFrame) -> dict[str, int]:
@@ -146,6 +151,54 @@ def build_issue_counts(df: pd.DataFrame) -> dict[str, int]:
     }
 
 
+def build_ai_audit_summary() -> dict[str, object]:
+    if not AI_AUDIT_CSV.exists():
+        return {}
+
+    df = pd.read_csv(AI_AUDIT_CSV).fillna("")
+    if df.empty:
+        return {}
+
+    row = df.iloc[0].to_dict()
+    indicators = []
+    for key, label in ai_indicator_labels().items():
+        indicators.append(
+            {
+                "key": key,
+                "label": label,
+                "status": str(row.get(f"{key}_status", "")),
+                "score": int(float(row.get(f"{key}_score", 0) or 0)),
+                "evidence": str(row.get(f"{key}_evidence", "")),
+                "recommendation": str(row.get(f"{key}_recommendation", "")),
+            }
+        )
+
+    return {
+        "siteUrl": str(row.get("site_url", "")),
+        "checkedAt": str(row.get("checked_at", "")),
+        "pagesChecked": int(float(row.get("pages_checked", 0) or 0)),
+        "score": int(float(row.get("ai_score", 0) or 0)),
+        "grade": str(row.get("ai_grade", "")),
+        "indicators": indicators,
+        "overallRecommendations": str(row.get("overall_recommendations", "")),
+    }
+
+
+def ai_indicator_labels() -> dict[str, str]:
+    return {
+        "https": "HTTPS",
+        "meta_title": "Meta Title",
+        "meta_description": "Meta Description",
+        "html_semantics": "HTML 語意結構",
+        "open_graph": "Open Graph",
+        "rwd": "RWD",
+        "schema": "Schema",
+        "robots_txt": "robots.txt",
+        "sitemap": "Sitemap",
+        "llms_txt": "llms.txt",
+    }
+
+
 def update_reports_index(summary: dict[str, object]) -> None:
     report_entry = {
         "id": summary["reportDate"],
@@ -158,6 +211,7 @@ def update_reports_index(summary: dict[str, object]) -> None:
         "grades": summary["grades"],
         "status": summary["status"],
         "issues": summary["issues"],
+        "aiAudit": summary.get("aiAudit", {}),
         "isLatest": True,
     }
 

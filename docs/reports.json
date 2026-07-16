@@ -28,6 +28,96 @@
       "圖片缺少 alt 總數": 4746,
       "爬取錯誤頁面": 0
     },
+    "aiAudit": {
+      "siteUrl": "https://www.mandarinflorist.com.tw/",
+      "checkedAt": "2026-07-16T03:11:04+00:00",
+      "pagesChecked": 300,
+      "score": 85,
+      "grade": "A",
+      "indicators": [
+        {
+          "key": "https",
+          "label": "HTTPS",
+          "status": "pass",
+          "score": 10,
+          "evidence": "網站使用 HTTPS：https://www.mandarinflorist.com.tw/",
+          "recommendation": "維持 HTTPS 與有效憑證。"
+        },
+        {
+          "key": "meta_title",
+          "label": "Meta Title",
+          "status": "pass",
+          "score": 10,
+          "evidence": "首頁 title 存在；抽查 300 頁皆有 title。",
+          "recommendation": "維持每頁唯一且清楚的 title。"
+        },
+        {
+          "key": "meta_description",
+          "label": "Meta Description",
+          "status": "partial",
+          "score": 5,
+          "evidence": "首頁 description 存在；抽查 300 頁，有 2 頁缺 description。",
+          "recommendation": "補齊缺少 description 的頁面。"
+        },
+        {
+          "key": "html_semantics",
+          "label": "HTML 語意結構",
+          "status": "fail",
+          "score": 0,
+          "evidence": "首頁缺少 H1；H2=3。",
+          "recommendation": "補上首頁 H1，並建立 H2 區塊架構。"
+        },
+        {
+          "key": "open_graph",
+          "label": "Open Graph",
+          "status": "pass",
+          "score": 10,
+          "evidence": "首頁 Open Graph 欄位完整。",
+          "recommendation": "維持 og:title、og:description、og:image、og:url。"
+        },
+        {
+          "key": "rwd",
+          "label": "RWD",
+          "status": "pass",
+          "score": 10,
+          "evidence": "找到 viewport meta：width=device-width, initial-scale=1.0, viewport-fit=cover",
+          "recommendation": "維持行動裝置 viewport 設定，並定期做手機版檢查。"
+        },
+        {
+          "key": "schema",
+          "label": "Schema",
+          "status": "pass",
+          "score": 10,
+          "evidence": "找到 JSON-LD 2 組、microdata 0 組。",
+          "recommendation": "維持 Organization、WebSite、Product 或 Breadcrumb 等 Schema。"
+        },
+        {
+          "key": "robots_txt",
+          "label": "robots.txt",
+          "status": "pass",
+          "score": 10,
+          "evidence": "robots.txt 可讀：https://www.mandarinflorist.com.tw/robots.txt",
+          "recommendation": "維持 robots.txt 可讀，並確認重要頁面未被封鎖。"
+        },
+        {
+          "key": "sitemap",
+          "label": "Sitemap",
+          "status": "pass",
+          "score": 10,
+          "evidence": "可解析 sitemap，找到 1278 個 URL。",
+          "recommendation": "維持 sitemap 更新，讓搜尋引擎快速找到頁面。"
+        },
+        {
+          "key": "llms_txt",
+          "label": "llms.txt",
+          "status": "pass",
+          "score": 10,
+          "evidence": "llms.txt 可讀：https://www.mandarinflorist.com.tw/llms.txt",
+          "recommendation": "維持 llms.txt，提供 AI 系統可讀的品牌與重點內容。"
+        }
+      ],
+      "overallRecommendations": "Meta Description: 補齊缺少 description 的頁面。 | HTML 語意結構: 補上首頁 H1，並建立 H2 區塊架構。"
+    },
     "isLatest": true
   }
 ]
