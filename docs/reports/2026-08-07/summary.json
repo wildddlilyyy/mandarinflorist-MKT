@@ -1,0 +1,31 @@
+{
+  "reportDate": "2026-08-07",
+  "site": "https://www.mandarinflorist.com.tw/",
+  "siteKey": "mandarinflorist",
+  "title": "文華花苑 SEO 分析報告",
+  "generatedAt": "2026-08-07T12:59:46",
+  "pageCount": 1,
+  "averageScore": 77.0,
+  "grades": {
+    "A": 0,
+    "B": 1,
+    "C": 0,
+    "D": 0
+  },
+  "status": {
+    "200": 1
+  },
+  "issues": {
+    "非 200 狀態碼頁面": 0,
+    "缺少 title": 0,
+    "缺少 meta description": 0,
+    "缺少 H1": 1,
+    "缺少 canonical": 0,
+    "圖片缺少 alt 總數": 25,
+    "爬取錯誤頁面": 0
+  },
+  "pages": "pages.json",
+  "chunks": [
+    "pages-01.json"
+  ]
+}

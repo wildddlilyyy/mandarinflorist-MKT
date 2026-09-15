@@ -1,5 +1,33 @@
 [
   {
+    "id": "2026-08-07",
+    "label": "2026-08-07 SEO 報告",
+    "reportDate": "2026-08-07",
+    "site": "https://www.mandarinflorist.com.tw/",
+    "path": "reports/2026-08-07/",
+    "pageCount": 1,
+    "averageScore": 77.0,
+    "grades": {
+      "A": 0,
+      "B": 1,
+      "C": 0,
+      "D": 0
+    },
+    "status": {
+      "200": 1
+    },
+    "issues": {
+      "非 200 狀態碼頁面": 0,
+      "缺少 title": 0,
+      "缺少 meta description": 0,
+      "缺少 H1": 1,
+      "缺少 canonical": 0,
+      "圖片缺少 alt 總數": 25,
+      "爬取錯誤頁面": 0
+    },
+    "isLatest": true
+  },
+  {
     "id": "2026-07-16",
     "label": "2026-07-16 SEO 報告",
     "reportDate": "2026-07-16",
@@ -118,6 +146,6 @@
       ],
       "overallRecommendations": "Meta Description: 補齊缺少 description 的頁面。 | HTML 語意結構: 補上首頁 H1，並建立 H2 區塊架構。"
     },
-    "isLatest": true
+    "isLatest": false
   }
 ]

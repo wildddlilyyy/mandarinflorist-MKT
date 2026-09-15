@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.mandarinflorist.com.tw/",
+    "status": 200,
+    "score": 77,
+    "grade": "B",
+    "priority": "中",
+    "title": "文華國際花苑 MANDARIN FLORIST｜台北花店推薦｜精品花藝",
+    "titleLength": 35,
+    "description": "位於台北市大安區與信義區新光三越A4，文華花苑專注於高端花藝設計，提供商業空間花藝佈置、客製化花束與永生花禮，及祝賀盆花等服務。無論是提升生活美學，還是商業場所佈置，我們都為您打造專屬的專業質感花藝創作。",
+    "descriptionLength": 102,
+    "h1Count": 0,
+    "h1Text": "",
+    "canonical": "https://www.mandarinflorist.com.tw",
+    "imageCount": 31,
+    "missingAlt": 25,
+    "missingAltRatio": 0.8065,
+    "internalLinks": 130,
+    "externalLinks": 6,
+    "recommendations": [
+      "補上唯一且清楚的 H1，讓頁面主題更明確。",
+      "大量圖片缺少 alt，建議建立圖片替代文字規則並批次補強。"
+    ],
+    "error": ""
+  }
+]
