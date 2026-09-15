@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文華花苑頁面設計 Demo</title>
+  <meta name="description" content="文華花苑 Floral Design Services 頁面設計展示。">
+  <style>
+    :root { --ink:#173f35; --muted:#64748b; --accent:#16805c; --line:#d7e1dc; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif; background:#f7f8f3; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; max-width:1180px; margin:0 auto; padding:24px 28px; }
+    .brand { font-weight:800; letter-spacing:.02em; }
+    .back { color:var(--accent); font-size:14px; font-weight:800; text-decoration:none; }
+    .wrap { max-width:1180px; margin:0 auto; padding:30px 28px 80px; }
+    .eyebrow { margin:0 0 10px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.1em; }
+    h1 { margin:0; font-size:clamp(32px,5vw,52px); line-height:1.2; }
+    .intro { max-width:680px; color:var(--muted); line-height:1.8; }
+    .preview { margin-top:34px; padding:12px; border:1px solid var(--line); border-radius:12px; background:#fff; box-shadow:0 18px 50px rgba(23,63,53,.08); }
+    .preview img { display:block; width:100%; height:auto; border-radius:6px; }
+    .caption { margin:18px 4px 4px; color:var(--muted); font-size:13px; }
+    @media (max-width:700px) { .topbar,.wrap { padding-left:20px; padding-right:20px; } .topbar { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">MANDARIN FLORIST</div>
+    <a class="back" href="index.html">← 回首頁</a>
+  </header>
+  <main class="wrap">
+    <p class="eyebrow">PAGE DESIGN DEMO</p>
+    <h1>Floral Design Services</h1>
+    <p class="intro">文華花苑花藝服務頁面設計展示，呈現花藝服務、作品分類與品牌視覺方向。</p>
+    <figure class="preview">
+      <img src="assets/service_demo.jpg" alt="文華花苑 Floral Design Services 頁面設計展示">
+      <figcaption class="caption">頁面設計展示圖｜Service Demo</figcaption>
+    </figure>
+  </main>
+</body>
+</html>
