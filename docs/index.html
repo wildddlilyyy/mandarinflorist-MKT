@@ -3,56 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>文華花苑 行銷與 SEO 工作台</title>
-  <meta name="description" content="文華花苑頁面設計展示與 SEO 報告入口。">
+  <title>工作區登入｜文華花苑</title>
+  <script>if (sessionStorage.getItem("mandarin-workspace-unlocked") === "1") { window.location.replace("workspace.html"); }</script>
   <style>
-    :root { color-scheme: light; --ink: #173f35; --muted: #5d6f82; --accent: #16805c; --line: #d7e1dc; --card: rgba(255,255,255,.88); --soft: #e7f2ec; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; font-family: Inter, "Noto Sans TC", "Microsoft JhengHei", sans-serif; color: var(--ink); background: radial-gradient(circle at 12% 18%, rgba(212,232,222,.62), transparent 34%), radial-gradient(circle at 92% 82%, rgba(238,236,211,.58), transparent 38%), #f7f8f3; }
-    .shell { max-width: 1080px; margin: 0 auto; padding: 82px 28px 96px; }
-    .kicker { margin: 0 0 12px; color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: .1em; }
-    h1 { margin: 0; max-width: 930px; font-size: clamp(38px, 6vw, 62px); line-height: 1.16; letter-spacing: -.035em; }
-    .intro { max-width: 730px; margin: 14px 0 40px; color: var(--muted); font-size: 17px; line-height: 1.8; }
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .card { min-height: 248px; display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--line); border-radius: 9px; background: var(--card); box-shadow: 0 16px 40px rgba(23,63,53,.05); }
-    .icon { width: 43px; height: 43px; display: grid; place-items: center; margin-bottom: 24px; border-radius: 8px; background: var(--soft); color: var(--ink); }
-    .icon svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-    h2 { margin: 0 0 8px; font-size: 23px; letter-spacing: -.02em; }
-    .card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
-    .link { margin-top: auto; padding-top: 24px; color: var(--accent); font-size: 14px; font-weight: 800; text-decoration: none; }
-    .link span { display: inline-block; margin-left: 7px; font-size: 20px; line-height: 0; vertical-align: -2px; transition: transform .2s ease; }
-    .link:hover span { transform: translateX(4px); }
-    .updated { margin: 25px 0 0; color: var(--muted); font-size: 13px; }
-    @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 700px) { .shell { padding: 52px 20px 68px; } .cards { grid-template-columns: 1fr; } .intro { margin-bottom: 28px; } }
+    :root { --ink:#173f35; --muted:#5d6f82; --accent:#16805c; --line:#d7e1dc; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif; color:var(--ink); background:radial-gradient(circle at 12% 18%,rgba(212,232,222,.62),transparent 34%),radial-gradient(circle at 92% 82%,rgba(238,236,211,.58),transparent 38%),#f7f8f3; }
+    .gate-card { width:min(430px,100%); padding:32px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.92); box-shadow:0 18px 50px rgba(23,63,53,.08); }
+    h1 { margin:0 0 10px; font-size:30px; }
+    p { margin:0 0 22px; color:var(--muted); line-height:1.7; }
+    form { display:flex; gap:10px; }
+    input { min-width:0; flex:1; padding:12px 13px; border:1px solid var(--line); border-radius:7px; font:inherit; }
+    button { padding:12px 16px; border:0; border-radius:7px; color:#fff; background:var(--accent); font:inherit; font-weight:800; cursor:pointer; }
+    .error { min-height:20px; margin:10px 0 0; color:#a33d35; font-size:13px; }
   </style>
 </head>
 <body>
-  <main class="shell">
-    <p class="kicker">MANDARIN FLORIST DASHBOARD</p>
-    <h1>文華花苑 行銷與 SEO 工作台</h1>
-    <p class="intro">快速切換頁面設計展示與網站 SEO 報告，集中查看文華花苑網站健康度與優化方向。</p>
-    <section class="cards" aria-label="工作台入口">
-      <article class="card">
-        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="15" rx="2"></rect><path d="M7 3.5v4M17 3.5v4M3.5 9.5h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 17h.01M12 17h.01"></path></svg></div>
-        <h2>頁面設計 demo</h2>
-        <p>查看文華花苑目前的網站頁面與視覺呈現。</p>
-        <a class="link" href="page-design-demo.html">Open demo <span>→</span></a>
-      </article>
-      <article class="card">
-        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M8 13h3M8 16.5h5M15 13h2"></path></svg></div>
-        <h2>檔期訂單與顧客分析</h2>
-        <p>依檔期查看銷量與銷售總金額，快速掌握各檔期表現。</p>
-        <a class="link" href="workspace-login.html">Open analysis <span>→</span></a>
-      </article>
-      <article class="card">
-        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V4.5M4 19.5h16"></path><path d="m7 15 3-3 2.5 2 5-6"></path><path d="M15.5 8H18v2.5"></path></svg></div>
-        <h2>SEO Report</h2>
-        <p>查看歷史 SEO 報告、分數、問題統計與後續修正建議。</p>
-        <a class="link" href="seo-report.html">Open report <span>→</span></a>
-      </article>
-    </section>
-    <p class="updated">Last updated: 2026-10-02</p>
+  <main class="gate-card">
+    <h1>工作區登入</h1>
+    <p>請輸入密碼後查看文華花苑行銷與 SEO 工作台。</p>
+    <form id="loginForm">
+      <input id="passwordInput" type="password" autocomplete="current-password" placeholder="輸入密碼" required>
+      <button type="submit">進入</button>
+    </form>
+    <div class="error" id="loginError" role="alert"></div>
   </main>
+  <script>
+    const TEMP_PASSWORD = "Mandarin2026";
+    const form = document.getElementById("loginForm");
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("loginError");
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const entered = input.value.trim().replace(/[!！]/g, "");
+      if (entered === TEMP_PASSWORD) {
+        sessionStorage.setItem("mandarin-workspace-unlocked", "1");
+        window.location.href = "workspace.html";
+      } else {
+        error.textContent = "密碼不正確，請再試一次。";
+        input.select();
+      }
+    });
+  </script>
 </body>
 </html>
