@@ -13,7 +13,7 @@
     .kicker { margin: 0 0 12px; color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: .1em; }
     h1 { margin: 0; max-width: 930px; font-size: clamp(38px, 6vw, 62px); line-height: 1.16; letter-spacing: -.035em; }
     .intro { max-width: 730px; margin: 14px 0 40px; color: var(--muted); font-size: 17px; line-height: 1.8; }
-    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .card { min-height: 248px; display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--line); border-radius: 9px; background: var(--card); box-shadow: 0 16px 40px rgba(23,63,53,.05); }
     .icon { width: 43px; height: 43px; display: grid; place-items: center; margin-bottom: 24px; border-radius: 8px; background: var(--soft); color: var(--ink); }
     .icon svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
@@ -23,6 +23,7 @@
     .link span { display: inline-block; margin-left: 7px; font-size: 20px; line-height: 0; vertical-align: -2px; transition: transform .2s ease; }
     .link:hover span { transform: translateX(4px); }
     .updated { margin: 25px 0 0; color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 700px) { .shell { padding: 52px 20px 68px; } .cards { grid-template-columns: 1fr; } .intro { margin-bottom: 28px; } }
   </style>
 </head>
@@ -37,6 +38,12 @@
         <h2>頁面設計 demo</h2>
         <p>查看文華花苑目前的網站頁面與視覺呈現。</p>
         <a class="link" href="page-design-demo.html">Open demo <span>→</span></a>
+      </article>
+      <article class="card">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M8 13h3M8 16.5h5M15 13h2"></path></svg></div>
+        <h2>檔期訂單與顧客分析</h2>
+        <p>依檔期查看銷量與銷售總金額，快速掌握各檔期表現。</p>
+        <a class="link" href="order-analysis.html">Open analysis <span>→</span></a>
       </article>
       <article class="card">
         <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V4.5M4 19.5h16"></path><path d="m7 15 3-3 2.5 2 5-6"></path><path d="M15.5 8H18v2.5"></path></svg></div>

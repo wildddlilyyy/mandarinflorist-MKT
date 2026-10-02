@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>檔期訂單與顧客分析｜文華花苑</title>
+  <meta name="description" content="文華花苑檔期訂單與顧客分析工作區。">
+  <style>
+    :root { color-scheme: light; --ink:#173f35; --muted:#5d6f82; --accent:#16805c; --line:#d7e1dc; --card:rgba(255,255,255,.9); --soft:#e7f2ec; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif; color:var(--ink); background:radial-gradient(circle at 12% 18%,rgba(212,232,222,.62),transparent 34%),radial-gradient(circle at 92% 82%,rgba(238,236,211,.58),transparent 38%),#f7f8f3; }
+    .shell { max-width:1080px; margin:0 auto; padding:58px 28px 80px; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:56px; }
+    .back { color:var(--accent); font-size:14px; font-weight:800; text-decoration:none; }
+    .kicker { margin:0 0 12px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.1em; }
+    h1 { margin:0; font-size:clamp(34px,5vw,54px); line-height:1.2; letter-spacing:-.035em; }
+    .intro { max-width:720px; margin:14px 0 34px; color:var(--muted); font-size:16px; line-height:1.8; }
+    .notice { margin-bottom:24px; padding:13px 16px; border:1px solid var(--line); border-radius:8px; color:var(--muted); background:rgba(255,255,255,.62); font-size:13px; }
+    .period-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .period-card { display:flex; flex-direction:column; min-height:268px; padding:24px; border:1px solid var(--line); border-radius:10px; background:var(--card); box-shadow:0 16px 40px rgba(23,63,53,.05); }
+    .period-icon { width:42px; height:42px; display:grid; place-items:center; margin-bottom:22px; border-radius:8px; color:var(--ink); background:var(--soft); }
+    .period-icon svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .date { margin:0 0 9px; color:var(--accent); font-size:13px; font-weight:800; }
+    h2 { margin:0 0 24px; font-size:22px; letter-spacing:-.02em; }
+    .metrics { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:auto; }
+    .metric { padding-top:14px; border-top:1px solid var(--line); }
+    .metric-label { display:block; color:var(--muted); font-size:12px; }
+    .metric-value { display:block; margin-top:6px; font-size:23px; font-weight:800; }
+    .updated { margin:24px 0 0; color:var(--muted); font-size:13px; }
+    @media (max-width:900px) { .period-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:620px) { .shell { padding:38px 20px 60px; } .topbar { margin-bottom:38px; } .period-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <strong>MANDARIN FLORIST</strong>
+      <a class="back" href="index.html">← 回首頁</a>
+    </div>
+    <p class="kicker">ORDER & CUSTOMER ANALYSIS</p>
+    <h1>檔期訂單與顧客分析</h1>
+    <p class="intro">依不同檔期整理訂單表現，快速查看檔期區間、檔期名稱、銷量與銷售總金額。</p>
+    <div class="notice">目前為分析版型，實際銷量與銷售總金額待訂單資料匯入後更新。</div>
+    <section class="period-grid" aria-label="檔期分析卡片">
+      <article class="period-card">
+        <div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div>
+        <p class="date">2026/09/01 – 2026/09/30</p>
+        <h2>九月日常花禮檔期</h2>
+        <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">待匯入</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">待匯入</strong></div></div>
+      </article>
+      <article class="period-card">
+        <div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div>
+        <p class="date">2026/10/01 – 2026/10/31</p>
+        <h2>十月秋季花禮檔期</h2>
+        <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">待匯入</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">待匯入</strong></div></div>
+      </article>
+      <article class="period-card">
+        <div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div>
+        <p class="date">2026/11/01 – 2026/11/30</p>
+        <h2>十一月感謝送禮檔期</h2>
+        <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">待匯入</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">待匯入</strong></div></div>
+      </article>
+    </section>
+    <p class="updated">Last updated: 2026-10-02</p>
+  </main>
+</body>
+</html>
