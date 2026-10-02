@@ -97,7 +97,8 @@
     if (unlocked) showWorkspace();
     form.addEventListener("submit", event => {
       event.preventDefault();
-      if (input.value.trim() === TEMP_PASSWORD) {
+      const enteredPassword = input.value.trim().replace(/[!！]/g, "");
+      if (enteredPassword === TEMP_PASSWORD) {
         sessionStorage.setItem("mandarin-workspace-unlocked", "1");
         error.textContent = "";
         showWorkspace();
