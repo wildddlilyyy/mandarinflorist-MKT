@@ -17,7 +17,7 @@
     h1 { margin:0; font-size:clamp(34px,5vw,54px); line-height:1.2; letter-spacing:-.035em; }
     .intro { max-width:720px; margin:14px 0 34px; color:var(--muted); font-size:16px; line-height:1.8; }
     .notice { margin-bottom:24px; padding:13px 16px; border:1px solid var(--line); border-radius:8px; color:var(--muted); background:rgba(255,255,255,.62); font-size:13px; }
-    .period-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; max-width:520px; }
+    .period-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:1080px; }
     .period-card { display:flex; flex-direction:column; min-height:268px; padding:24px; border:1px solid var(--line); border-radius:10px; color:var(--ink); background:var(--card); box-shadow:0 16px 40px rgba(23,63,53,.05); text-decoration:none; }
     .period-card:hover { border-color:var(--accent); box-shadow:0 18px 44px rgba(23,63,53,.12); }
     .period-icon { width:42px; height:42px; display:grid; place-items:center; margin-bottom:22px; border-radius:8px; color:var(--ink); background:var(--soft); }
@@ -29,7 +29,8 @@
     .metric-label { display:block; color:var(--muted); font-size:12px; }
     .metric-value { display:block; margin-top:6px; font-size:23px; font-weight:800; }
     .updated { margin:24px 0 0; color:var(--muted); font-size:13px; }
-    @media (max-width:620px) { .shell { padding:38px 20px 60px; } .topbar { margin-bottom:38px; } .period-grid { grid-template-columns:1fr; } }
+    @media (max-width:700px) { .period-grid { grid-template-columns:1fr; } }
+    @media (max-width:620px) { .shell { padding:38px 20px 60px; } .topbar { margin-bottom:38px; } }
   </style>
 </head>
 <body>
@@ -41,7 +42,7 @@
     <p class="kicker">ORDER & CUSTOMER ANALYSIS</p>
     <h1>檔期訂單與顧客分析</h1>
     <p class="intro">依不同檔期整理訂單表現，快速查看檔期區間、檔期名稱、銷量與銷售總金額。</p>
-    <div class="notice">目前為分析版型，實際銷量與銷售總金額待訂單資料匯入後更新。</div>
+    <div class="notice">目前顯示已完成整理的七夕與中秋檔期摘要。</div>
     <section class="period-grid" aria-label="檔期分析卡片">
       <a class="period-card" href="midautumn-analysis.html">
         <div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div>
@@ -49,6 +50,12 @@
         <h2>中秋檔期</h2>
         <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">176 件</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">NT$647,499</strong></div></div>
       </a>
+      <article class="period-card">
+        <div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div>
+        <p class="date">2026/07/20 – 2026/08/21</p>
+        <h2>七夕情人節檔期</h2>
+        <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">102 件</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">NT$398,580</strong></div></div>
+      </article>
     </section>
     <p class="updated">Last updated: 2026-10-02</p>
   </main>
