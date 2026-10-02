@@ -10,6 +10,16 @@
     * { box-sizing:border-box; }
     body { margin:0; min-height:100vh; font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif; color:var(--ink); background:radial-gradient(circle at 12% 18%,rgba(212,232,222,.62),transparent 34%),radial-gradient(circle at 92% 82%,rgba(238,236,211,.58),transparent 38%),#f7f8f3; }
     .shell { max-width:1080px; margin:0 auto; padding:58px 28px 80px; }
+    .locked .protected { display:none; }
+    .gate { min-height:100vh; display:grid; place-items:center; padding:24px; }
+    .gate-card { width:min(430px,100%); padding:32px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.92); box-shadow:0 18px 50px rgba(23,63,53,.08); }
+    .gate-card h1 { margin:0 0 10px; font-size:28px; }
+    .gate-card p { margin:0 0 22px; color:var(--muted); line-height:1.7; }
+    .gate-form { display:flex; gap:10px; }
+    .gate-form input { min-width:0; flex:1; padding:12px 13px; border:1px solid var(--line); border-radius:7px; font:inherit; }
+    .gate-form button { padding:12px 16px; border:0; border-radius:7px; color:#fff; background:var(--accent); font:inherit; font-weight:800; cursor:pointer; }
+    .gate-error { min-height:20px; margin:10px 0 0; color:#a33d35; font-size:13px; }
+    .logout { margin-left:14px; color:var(--muted); font-size:13px; text-decoration:none; }
     .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:56px; }
     .back { color:var(--accent); font-size:14px; font-weight:800; text-decoration:none; }
     .kicker { margin:0 0 12px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.1em; }
@@ -31,11 +41,22 @@
     @media (max-width:620px) { .shell { padding:38px 20px 60px; } .topbar { margin-bottom:38px; } .period-grid { grid-template-columns:1fr; } }
   </style>
 </head>
-<body>
-  <main class="shell">
+<body class="locked">
+  <section class="gate" id="gate">
+    <div class="gate-card">
+      <h1>工作區登入</h1>
+      <p>請輸入密碼後查看檔期訂單與顧客分析。</p>
+      <form class="gate-form" id="gateForm">
+        <input id="passwordInput" type="password" autocomplete="current-password" placeholder="輸入密碼" required>
+        <button type="submit">進入</button>
+      </form>
+      <div class="gate-error" id="gateError" role="alert"></div>
+    </div>
+  </section>
+  <main class="shell protected">
     <div class="topbar">
       <strong>MANDARIN FLORIST</strong>
-      <a class="back" href="index.html">← 回首頁</a>
+      <span><a class="back" href="index.html">← 回首頁</a><a class="logout" href="#" id="logout">登出</a></span>
     </div>
     <p class="kicker">ORDER & CUSTOMER ANALYSIS</p>
     <h1>檔期訂單與顧客分析</h1>
@@ -63,5 +84,33 @@
     </section>
     <p class="updated">Last updated: 2026-10-02</p>
   </main>
+  <script>
+    // 暫時密碼：正式放入敏感資料前，請修改 TEMP_PASSWORD。
+    const TEMP_PASSWORD = "Mandarin2026!";
+    const unlocked = sessionStorage.getItem("mandarin-workspace-unlocked") === "1";
+    const body = document.body;
+    const gate = document.getElementById("gate");
+    const form = document.getElementById("gateForm");
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("gateError");
+    const showWorkspace = () => { body.classList.remove("locked"); gate.hidden = true; };
+    if (unlocked) showWorkspace();
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      if (input.value === TEMP_PASSWORD) {
+        sessionStorage.setItem("mandarin-workspace-unlocked", "1");
+        error.textContent = "";
+        showWorkspace();
+      } else {
+        error.textContent = "密碼不正確，請再試一次。";
+        input.select();
+      }
+    });
+    document.getElementById("logout").addEventListener("click", event => {
+      event.preventDefault();
+      sessionStorage.removeItem("mandarin-workspace-unlocked");
+      window.location.reload();
+    });
+  </script>
 </body>
 </html>
