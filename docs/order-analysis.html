@@ -48,7 +48,7 @@
       <p>請輸入密碼後查看檔期訂單與顧客分析。</p>
       <form class="gate-form" id="gateForm">
         <input id="passwordInput" type="password" autocomplete="current-password" placeholder="輸入密碼" required>
-        <button id="enterButton" type="button" onclick="unlockWorkspace()">進入</button>
+        <button id="enterButton" type="button" onclick="const p=document.getElementById('passwordInput').value.trim().replace(/[!！]/g,'');if(p==='Mandarin2026'){sessionStorage.setItem('mandarin-workspace-unlocked','1');document.body.classList.remove('locked');document.getElementById('gate').hidden=true;document.getElementById('gateError').textContent='';}else{document.getElementById('gateError').textContent='密碼不正確，請再試一次。';}">進入</button>
       </form>
       <div class="gate-error" id="gateError" role="alert"></div>
     </div>
