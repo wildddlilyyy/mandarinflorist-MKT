@@ -20,8 +20,9 @@
     .period-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:1080px; }
     .period-card { display:flex; flex-direction:column; min-height:268px; padding:24px; border:1px solid var(--line); border-radius:10px; color:var(--ink); background:var(--card); box-shadow:0 16px 40px rgba(23,63,53,.05); text-decoration:none; }
     .period-card:hover { border-color:var(--accent); box-shadow:0 18px 44px rgba(23,63,53,.12); }
-    .strategy-card { grid-column:1 / -1; min-height:150px; }
+    .strategy-card { grid-column:1 / -1; min-height:0; }
     .strategy-card .date { margin-bottom:12px; }
+    .strategy-card .intro { max-width:none; margin:0; }
     .period-icon { width:42px; height:42px; display:grid; place-items:center; margin-bottom:22px; border-radius:8px; color:var(--ink); background:var(--soft); }
     .period-icon svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
     .date { margin:0 0 9px; color:var(--accent); font-size:13px; font-weight:800; }
@@ -59,9 +60,10 @@
         <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">102 件</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">NT$398,580</strong></div></div>
       </a>
       <article class="period-card strategy-card">
-        <p class="date">2026/10/02</p>
+        <p class="date">發布：2026/10/02</p>
         <h2>顧客分群策略與行動建議</h2>
-        <p class="intro">依顧客消費、回購與新舊客特徵，整理品牌顧客經營策略與後續行動建議。</p>
+        <p class="intro">依顧客消費、回購與新舊客特徵，整理品牌顧客經營策略與網管設定</p>
+        <a class="link" href="customer-strategy.html">查看策略 <span>→</span></a>
       </article>
     </section>
     <p class="updated">Last updated: 2026-10-02</p>
