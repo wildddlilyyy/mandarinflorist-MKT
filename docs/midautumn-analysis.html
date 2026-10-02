@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中秋檔期銷售與顧客分析｜文華花苑</title>
+<script>if (sessionStorage.getItem("mandarin-workspace-unlocked") !== "1") { window.location.replace("index.html"); }</script>
+<style>
+:root{--ink:#173f35;--muted:#5d6f82;--accent:#16805c;--line:#d7e1dc;--paper:#fff;--bg:#f7f8f3;--soft:#e7f2ec}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg)}header{padding:38px 28px;background:var(--ink);color:#fff}header,.content{padding-left:max(28px,calc((100% - 1080px)/2));padding-right:max(28px,calc((100% - 1080px)/2))}.back{color:#d8efe4;text-decoration:none;font-size:14px;font-weight:800}.eyebrow{margin:28px 0 10px;color:#9ed8bc;font-size:13px;font-weight:800;letter-spacing:.1em}h1{margin:0;font-size:clamp(32px,5vw,52px);line-height:1.2}header p{max-width:760px;margin:14px 0 0;color:#d8e8e2;line-height:1.75}.content{padding-top:34px;padding-bottom:70px}h2{margin:38px 0 14px;color:var(--ink);font-size:25px}h3{margin:30px 0 12px;color:var(--accent);font-size:19px}p,li{color:#4f6471;line-height:1.8}strong{color:var(--ink)}code{padding:2px 5px;border-radius:4px;background:var(--soft);color:var(--accent)}.table-wrap{overflow:auto;margin:16px 0;border:1px solid var(--line);border-radius:8px;background:var(--paper)}table{width:100%;border-collapse:collapse;min-width:620px;font-size:14px}th,td{padding:10px 12px;border-bottom:1px solid #e8eeea;text-align:left;vertical-align:top;line-height:1.55}th{background:var(--soft);color:var(--ink);white-space:nowrap}ul,ol{padding-left:24px}.notice{padding:14px 16px;border-left:4px solid var(--accent);background:#fff;border-radius:6px;color:var(--muted);line-height:1.7}.updated{margin-top:30px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header><a class="back" href="order-analysis.html">← 回到訂單分析</a><p class="eyebrow">MID-AUTUMN CAMPAIGN</p><h1>中秋檔期銷售與顧客分析</h1><p>統計期間：2026/08/19 – 2026/09/30｜已排除取消訂單｜顧客個資已遮罩。</p></header>
+<main class="content"><div class="notice">本頁資料已將顧客姓名、Email 與註冊日期以 <strong>xxx</strong> 遮罩；統計數據與商品分析保留供內部檢視。</div>
+<h1>文華國際花苑｜中秋檔期 銷售與顧客分析</h1>
+<p><strong>文件日期：</strong> 2026-10-02 <strong>統計期間：</strong> 2026/08/19 - 2026/09/30（已排除取消訂單） <strong>資料來源：</strong> SHOPLINE Admin Open API（Get Orders + Search Customers） <strong>樣本：</strong> 148 筆有效訂單、133 位不同顧客、商品銷售件數 176 件</p>
+<h3>檔期總覽</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>有效訂單數</td><td>148 筆</td></tr><tr><td>不同顧客數</td><td>133 人</td></tr><tr><td>商品銷售件數</td><td>176 件</td></tr><tr><td>總營收</td><td>NT$647,499</td></tr><tr><td>平均客單價</td><td>NT$4,375</td></tr></tbody></table></div>
+<p>---</p>
+<h2>一、中秋銷售排行與分析</h2>
+<h3>商品銷售排行 Top 10</h3>
+<p>依商品銷售金額（<code>subtotal_items</code> 加總）排序，商品單價為「總銷售金額 ÷ 銷量」之加權平均；部分商品因不同訂單單價不同（活動期間調價、組合優惠等），備註欄列出實際出現過的單價區間。</p>
+<div class="table-wrap"><table><thead><tr><th>排名</th><th>商品名稱</th><th>銷量(件)</th><th>商品單價(NT$)</th><th>總銷售金額(NT$)</th><th>備註</th></tr></thead><tbody><tr><td>1</td><td>湛金之境</td><td>9</td><td>$4,680</td><td>$42,120</td><td></td></tr><tr><td>2</td><td>中秋花禮 - 紫豐綻賞</td><td>5</td><td>$5,928</td><td>$29,640</td><td>訂單間單價不同（NT$5,880 / NT$6,000）</td></tr><tr><td>3</td><td>中秋花禮 - 柚香丰富</td><td>6</td><td>$3,730</td><td>$22,380</td><td>訂單間單價不同（NT$3,680 / NT$3,780）</td></tr><tr><td>4</td><td>中秋花禮 - 金兔團圓</td><td>6</td><td>$3,425</td><td>$20,550</td><td>訂單間單價不同（NT$3,380 / NT$3,650）</td></tr><tr><td>5</td><td>中秋花禮 - 玉蝶竹頌</td><td>5</td><td>$3,950</td><td>$19,750</td><td>訂單間單價不同（NT$3,800~NT$4,250）</td></tr><tr><td>6</td><td>中秋花禮 - 金兔耀月</td><td>8</td><td>$2,403</td><td>$19,220</td><td>訂單間單價不同（NT$2,350 / NT$2,380 / NT$2,680）</td></tr><tr><td>7</td><td>永生花禮 - 提琴樂章(紫藤)</td><td>1</td><td>$16,880</td><td>$16,880</td><td>單筆高單價訂單</td></tr><tr><td>8</td><td>中秋花禮 - 湛青秋韻</td><td>5</td><td>$3,360</td><td>$16,800</td><td>訂單間單價不同（NT$3,280 / NT$3,380）</td></tr><tr><td>9</td><td>金赤熠熠</td><td>4</td><td>$3,800</td><td>$15,200</td><td></td></tr><tr><td>10</td><td>中秋花禮 - 玉兔嬉夢</td><td>6</td><td>$2,415</td><td>$14,490</td><td>訂單間單價不同（NT$2,350~NT$2,680）</td></tr></tbody></table></div>
+<p><strong>合計：</strong> 55 件、NT$217,030</p>
+<p><strong>Top 10 商品集中度：</strong> 55 件 ／ 全檔期總銷量 176 件 ＝ <strong>31.3%</strong>（前10款商品貢獻約三分之一銷量，其餘近七成銷量分散在長尾商品）</p>
+<h3>觀察</h3>
+<ol><li><strong>「湛金之境」銷量最高</strong>（9件），但單價中等（約NT$4,680），屬於主力走量款；真正拉高客單的是永生花禮系列。</li><li><strong>「中秋花禮 - 紫豐綻賞」單價最高且銷售額第二</strong>（NT$29,640），顯示高單價禮盒在中秋檔期仍有穩定買氣，非僅靠低價走量。</li><li><strong>「永生花禮 - 提琴樂章(紫藤)」僅賣出1件卻擠進Top 7</strong>（單件NT$16,880），屬於高單價客製／送禮商品，可評估是否值得加強曝光或主動推薦給高消費顧客（可對照本文件第三節的高消費顧客排名）。</li><li>Top 10 商品合計銷售額 NT$217,030，多款「中秋花禮」系列（紫豐綻賞、柚香丰富、金兔團圓、玉蝶竹頌、金兔耀月、湛青秋韻、玉兔嬉夢）共7款入榜，顯示系列化禮盒命名策略對銷售有正向帶動。</li><li>多數商品在不同訂單中單價不同（活動期間調價、加購或組合優惠所致），商品單價欄為加權平均，實際單筆成交價請參考備註欄區間。</li></ol>
+<p>---</p>
+<h2>二、回購 vs 新客分析</h2>
+<p>「新客」定義：顧客帳號註冊時間在 2026/08/19 之後；「舊客」為檔期開始前已註冊之既有會員。</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>新客（檔期內註冊）</th><th>舊客（檔期前已註冊）</th></tr></thead><tbody><tr><td>顧客數</td><td>61 人（45.9%）</td><td>72 人（54.1%）</td></tr><tr><td>訂單數</td><td>65 筆</td><td>83 筆</td></tr><tr><td>營收貢獻</td><td>NT$299,946（46.3%）</td><td>NT$347,553（53.7%）</td></tr><tr><td>檔期內回購（≥2筆訂單）人數</td><td>4 人</td><td>9 人</td></tr><tr><td>檔期內回購率</td><td>6.6%</td><td>12.5%</td></tr><tr><td>平均客單價</td><td>NT$4,917</td><td>NT$4,827</td></tr></tbody></table></div>
+<h3>整體回購率摘要（全部顧客，不分新舊）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>有效訂單總數</td><td>148 筆</td></tr><tr><td>不同顧客總數</td><td>133 人</td></tr><tr><td>總營收</td><td>NT$647,499</td></tr><tr><td>回購顧客人數（≥2筆訂單）</td><td>13 人</td></tr><tr><td>整體回購率</td><td>9.8%</td></tr><tr><td>回購顧客營收貢獻</td><td>NT$127,575（19.7%）</td></tr></tbody></table></div>
+<h3>觀察</h3>
+<p>新客幾乎貢獻了快一半的營收，顯示中秋檔期帶來不少新流量；但新客中回購比例偏低（4/61，6.6%），舊客回購比例較高（9/72，12.5%）——新客的後續經營（如加入會員等級、生日/節慶再行銷）可能是提升顧客終身價值（LTV）的切入點。</p>
+<p>---</p>
+<h2>三、高消費顧客排名 Top 10</h2>
+<p>依訂單實際金額（total）加總，非商品小計加總。</p>
+<div class="table-wrap"><table><thead><tr><th>排名</th><th>姓名</th><th>Email</th><th>訂單數</th><th>總消費金額</th><th>身分</th><th>註冊日期</th></tr></thead><tbody><tr><td>1</td><td>xxx</td><td>xxx</td><td>3</td><td>NT$25,008</td><td>舊客</td><td>xxx</td></tr><tr><td>2</td><td>xxx</td><td>xxx</td><td>1</td><td>NT$18,520</td><td>新客</td><td>xxx</td></tr><tr><td>3</td><td>xxx</td><td>xxx</td><td>1</td><td>NT$16,680</td><td>新客</td><td>xxx</td></tr><tr><td>4</td><td>xxx</td><td>xxx</td><td>1</td><td>NT$14,926</td><td>舊客</td><td>xxx</td></tr><tr><td>5</td><td>xxx</td><td>xxx</td><td>1</td><td>NT$14,557</td><td>舊客</td><td>xxx</td></tr><tr><td>6</td><td>xxx</td><td>xxx</td><td>2</td><td>NT$14,306</td><td>新客</td><td>xxx</td></tr><tr><td>7</td><td>xxx</td><td>xxx</td><td>1</td><td>NT$13,360</td><td>新客</td><td>xxx</td></tr><tr><td>8</td><td>xxx</td><td>xxx</td><td>2</td><td>NT$11,612</td><td>舊客</td><td>xxx</td></tr><tr><td>9</td><td>xxx</td><td>xxx</td><td>2</td><td>NT$9,720</td><td>舊客</td><td>xxx</td></tr><tr><td>10</td><td>xxx</td><td>xxx</td><td>1</td><td>NT$9,400</td><td>新客</td><td>xxx</td></tr></tbody></table></div>
+<p><strong>合計：</strong> 15 筆訂單、NT$148,089</p>
+<h3>觀察</h3>
+<p>Top 1 的 xxx 在檔期內下了 3 筆單、消費 NT$25,008，明顯領先第二名；值得留意的是她目前並非會員等級資料顯示的 VIP 對待對象，可考慮列入高價值顧客標籤或後續專屬優惠。Top 10 中新舊客各半，顯示高單價訂單並非只集中在既有熟客。</p>
+<p>---</p>
+<h2>四、資料口徑說明</h2>
+<ol><li>統計範圍：2026/08/19 00:00 ~ 2026/09/30 23:59（台北時間）。</li><li>已排除狀態為 cancelled 的訂單，共 148 筆有效訂單納入統計。</li><li><strong>商品銷售排行</strong>（第一節）採商品層級 <code>subtotal_items</code> 加總；<strong>顧客消費金額</strong>（第二、三節）一律採訂單層級 <code>total</code>（SHOPLINE Admin Open API 實際成交金額），兩者口徑不同——<code>total</code> 已扣除折扣、購物金、運費等，<code>subtotal_items</code> 為商品原價小計加總，兩者之間存在差異，不可直接相加比對。</li><li>商品單價欄為「總銷售金額 ÷ 銷量」之加權平均，非單一牌價。</li><li>回購率僅反映本檔期內之重複購買行為，非顧客終身回購率。</li><li>商品銷售件數（176件）為全期間所有訂單內 <code>subtotal_items.quantity</code> 加總，口徑與「有效訂單數」「顧客總數」一致（已排除 cancelled 及範圍外的 8/18 訂單）。</li></ol>
+<p class="updated">資料整理日期：2026-10-02</p></main>
+</body>
+</html>
