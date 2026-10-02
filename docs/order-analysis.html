@@ -23,6 +23,10 @@
     .strategy-card { grid-column:1 / -1; min-height:0; }
     .strategy-card .date { margin-bottom:12px; }
     .strategy-card .intro { max-width:none; margin:0; }
+    .period-heading { display:grid; grid-template-columns:42px minmax(0,1fr); column-gap:14px; align-items:start; margin-bottom:24px; }
+    .period-heading .period-icon { grid-row:1 / span 2; margin-bottom:0; }
+    .period-heading .date { margin:0 0 5px; }
+    .period-heading h2 { margin:0; }
     .link { display:inline-block; margin-top:16px; padding-top:8px; color:var(--accent); font-size:14px; font-weight:800; text-decoration:none; }
     .link span { display:inline-block; margin-left:7px; font-size:20px; line-height:0; vertical-align:-2px; transition:transform .2s ease; }
     .link:hover span { transform:translateX(4px); }
@@ -51,15 +55,11 @@
     <div class="notice">目前顯示已完成整理的七夕與中秋檔期摘要。</div>
     <section class="period-grid" aria-label="檔期分析卡片">
       <a class="period-card" href="midautumn-analysis.html">
-        <div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div>
-        <p class="date">2026/08/19 – 2026/09/30（43 天）</p>
-        <h2>中秋檔期</h2>
+        <div class="period-heading"><div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div><p class="date">2026/08/19 – 2026/09/30（43 天）</p><h2>中秋檔期</h2></div>
         <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">176 件</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">NT$647,499</strong></div></div>
       </a>
       <a class="period-card" href="qixi-analysis.html">
-        <div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div>
-        <p class="date">2026/07/20 – 2026/08/21（33 天）</p>
-        <h2>七夕情人節檔期</h2>
+        <div class="period-heading"><div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2"></rect><path d="M7 2.8v3.4M17 2.8v3.4M3.5 9h17M7.5 13h.01M12 13h.01M16.5 13h.01M7.5 16.5h.01M12 16.5h.01"></path></svg></div><p class="date">2026/07/20 – 2026/08/21（33 天）</p><h2>七夕情人節檔期</h2></div>
         <div class="metrics"><div class="metric"><span class="metric-label">銷量</span><strong class="metric-value">102 件</strong></div><div class="metric"><span class="metric-label">銷售總金額</span><strong class="metric-value">NT$398,580</strong></div></div>
       </a>
       <article class="period-card strategy-card">
