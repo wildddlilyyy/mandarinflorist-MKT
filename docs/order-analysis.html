@@ -48,7 +48,7 @@
       <p>請輸入密碼後查看檔期訂單與顧客分析。</p>
       <form class="gate-form" id="gateForm">
         <input id="passwordInput" type="password" autocomplete="current-password" placeholder="輸入密碼" required>
-        <button type="submit">進入</button>
+        <button id="enterButton" type="button">進入</button>
       </form>
       <div class="gate-error" id="gateError" role="alert"></div>
     </div>
@@ -95,8 +95,7 @@
     const error = document.getElementById("gateError");
     const showWorkspace = () => { body.classList.remove("locked"); gate.hidden = true; };
     if (unlocked) showWorkspace();
-    form.addEventListener("submit", event => {
-      event.preventDefault();
+    const unlock = () => {
       const enteredPassword = input.value.trim().replace(/[!！]/g, "");
       if (enteredPassword === TEMP_PASSWORD) {
         sessionStorage.setItem("mandarin-workspace-unlocked", "1");
@@ -106,7 +105,10 @@
         error.textContent = "密碼不正確，請再試一次。";
         input.select();
       }
-    });
+    };
+    form.addEventListener("submit", event => { event.preventDefault(); unlock(); });
+    document.getElementById("enterButton").addEventListener("click", unlock);
+    input.addEventListener("keydown", event => { if (event.key === "Enter") { event.preventDefault(); unlock(); } });
     document.getElementById("logout").addEventListener("click", event => {
       event.preventDefault();
       sessionStorage.removeItem("mandarin-workspace-unlocked");
