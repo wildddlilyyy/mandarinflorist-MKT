@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工作區登入｜文華花苑</title>
+  <style>
+    :root { --ink:#173f35; --muted:#5d6f82; --accent:#16805c; --line:#d7e1dc; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif; color:var(--ink); background:radial-gradient(circle at 12% 18%,rgba(212,232,222,.62),transparent 34%),radial-gradient(circle at 92% 82%,rgba(238,236,211,.58),transparent 38%),#f7f8f3; }
+    .gate-card { width:min(430px,100%); padding:32px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.92); box-shadow:0 18px 50px rgba(23,63,53,.08); }
+    h1 { margin:0 0 10px; font-size:30px; }
+    p { margin:0 0 22px; color:var(--muted); line-height:1.7; }
+    form { display:flex; gap:10px; }
+    input { min-width:0; flex:1; padding:12px 13px; border:1px solid var(--line); border-radius:7px; font:inherit; }
+    button { padding:12px 16px; border:0; border-radius:7px; color:#fff; background:var(--accent); font:inherit; font-weight:800; cursor:pointer; }
+    .error { min-height:20px; margin:10px 0 0; color:#a33d35; font-size:13px; }
+    .back { display:inline-block; margin-top:22px; color:var(--accent); font-size:14px; font-weight:800; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <main class="gate-card">
+    <h1>工作區登入</h1>
+    <p>請輸入密碼後查看檔期訂單與顧客分析。</p>
+    <form id="loginForm">
+      <input id="passwordInput" type="password" autocomplete="current-password" placeholder="輸入密碼" required>
+      <button type="submit">進入</button>
+    </form>
+    <div class="error" id="loginError" role="alert"></div>
+    <a class="back" href="index.html">← 回首頁</a>
+  </main>
+  <script>
+    const TEMP_PASSWORD = "Mandarin2026";
+    const form = document.getElementById("loginForm");
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("loginError");
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const entered = input.value.trim().replace(/[!！]/g, "");
+      if (entered === TEMP_PASSWORD) {
+        sessionStorage.setItem("mandarin-workspace-unlocked", "1");
+        window.location.href = "order-analysis.html";
+      } else {
+        error.textContent = "密碼不正確，請再試一次。";
+        input.select();
+      }
+    });
+  </script>
+</body>
+</html>
