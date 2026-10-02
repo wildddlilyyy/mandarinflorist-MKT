@@ -86,7 +86,7 @@
   </main>
   <script>
     // 暫時密碼：正式放入敏感資料前，請修改 TEMP_PASSWORD。
-    const TEMP_PASSWORD = "Mandarin2026!";
+    const TEMP_PASSWORD = "Mandarin2026";
     const unlocked = sessionStorage.getItem("mandarin-workspace-unlocked") === "1";
     const body = document.body;
     const gate = document.getElementById("gate");
@@ -97,7 +97,7 @@
     if (unlocked) showWorkspace();
     form.addEventListener("submit", event => {
       event.preventDefault();
-      if (input.value === TEMP_PASSWORD) {
+      if (input.value.trim() === TEMP_PASSWORD) {
         sessionStorage.setItem("mandarin-workspace-unlocked", "1");
         error.textContent = "";
         showWorkspace();
