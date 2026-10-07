@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>文華花苑頁面設計 Demo</title>
-  <meta name="description" content="文華花苑 Floral Design Services 頁面設計展示。">
+  <meta name="description" content="文華花苑花藝設計、服務介紹、花藝課程介紹與課表提案。">
   <style>
     :root { --ink:#173f35; --muted:#64748b; --accent:#16805c; --line:#d7e1dc; }
     * { box-sizing:border-box; }
@@ -16,25 +16,64 @@
     .eyebrow { margin:0 0 10px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.1em; }
     h1 { margin:0; font-size:clamp(32px,5vw,52px); line-height:1.2; }
     .intro { max-width:680px; color:var(--muted); line-height:1.8; }
-    .preview { margin:34px 0 0; padding:12px; border:1px solid var(--line); border-radius:12px; background:#fff; box-shadow:0 18px 50px rgba(23,63,53,.08); }
+    .tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin:30px 0 0; }
+    .tab { padding:15px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--ink); font:inherit; font-weight:700; cursor:pointer; }
+    .tab:hover { border-color:var(--accent); }
+    .tab[aria-selected="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+    .tab:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+    [hidden] { display:none !important; }
+    .preview { margin:24px 0 0; padding:12px; border:1px solid var(--line); border-radius:12px; background:#fff; box-shadow:0 18px 50px rgba(23,63,53,.08); }
     .preview img { display:block; width:100%; height:auto; border-radius:6px; }
     .caption { margin:18px 4px 4px; color:var(--muted); font-size:13px; }
-    @media (max-width:700px) { .topbar,.wrap { padding-left:20px; padding-right:20px; } .topbar { align-items:flex-start; flex-direction:column; } }
+    .empty { min-height:380px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:35px; text-align:center; background:#f5f5ef; border:1px dashed var(--line); border-radius:6px; }
+    .empty h2 { font-size:26px; margin:0 0 10px; }
+    .empty p { color:var(--muted); line-height:1.8; margin:0; }
+    @media (max-width:700px) { .topbar,.wrap { padding-left:20px; padding-right:20px; } .topbar { align-items:flex-start; flex-direction:column; } .tabs { grid-template-columns:repeat(2,minmax(0,1fr)); } .empty { min-height:280px; } }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">MANDARIN FLORIST</div>
-    <a class="back" href="index.html">← 回首頁</a>
-  </header>
+  <header class="topbar"><div class="brand">MANDARIN FLORIST</div><a class="back" href="index.html">← 回首頁</a></header>
   <main class="wrap">
     <p class="eyebrow">PAGE DESIGN DEMO</p>
-    <h1>Floral Design Services</h1>
-    <p class="intro">文華花苑花藝服務頁面設計展示，呈現花藝服務、作品分類與品牌視覺方向。</p>
-    <figure class="preview">
-      <img src="assets/service_demo.jpg" alt="文華花苑 Floral Design Services 頁面設計展示">
-      <figcaption class="caption">頁面設計展示圖｜Service Demo</figcaption>
-    </figure>
+    <h1>文華花苑頁面設計提案</h1>
+    <p class="intro">切換下方頁籤，查看花藝設計、服務介紹、花藝課程介紹及課表與過往紀錄的版面提案。</p>
+    <div class="tabs" role="tablist" aria-label="頁面設計提案">
+      <button class="tab" id="tab-floral-design" role="tab" aria-selected="false" aria-controls="floral-design" tabindex="-1">Floral Design</button>
+      <button class="tab" id="tab-service" role="tab" aria-selected="true" aria-controls="service">Service</button>
+      <button class="tab" id="tab-school-service" role="tab" aria-selected="false" aria-controls="school-service" tabindex="-1">School Service</button>
+      <button class="tab" id="tab-class" role="tab" aria-selected="false" aria-controls="class" tabindex="-1">Class</button>
+    </div>
+    <section id="floral-design" role="tabpanel" aria-labelledby="tab-floral-design" tabindex="0" hidden><figure class="preview"><div class="empty"><h2>Floral Design</h2><p>花藝設計／作品集入口<br>提案圖待補</p></div><figcaption class="caption">花藝設計提案</figcaption></figure></section>
+    <section id="service" role="tabpanel" aria-labelledby="tab-service" tabindex="0"><figure class="preview"><img src="https://wildddlilyyy.github.io/mandarinflorist-MKT/assets/service_demo.jpg" alt="文華花苑服務介紹現有提案，待替換為新版圖片"><figcaption class="caption">服務介紹｜暫用現有提案圖，待替換新版</figcaption></figure></section>
+    <section id="school-service" role="tabpanel" aria-labelledby="tab-school-service" tabindex="0" hidden><figure class="preview"><div class="empty"><h2>School Service</h2><p>花藝課程介紹／企業包班／客製化教學<br>提案圖待補</p></div><figcaption class="caption">課程介紹提案</figcaption></figure></section>
+    <section id="class" role="tabpanel" aria-labelledby="tab-class" tabindex="0" hidden><figure class="preview"><div class="empty"><h2>Class</h2><p>課表與過往活動紀錄<br>提案圖待補</p></div><figcaption class="caption">課表與過往紀錄提案</figcaption></figure></section>
   </main>
+  <script>
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    function activate(tab, focus = false) {
+      for (const item of tabs) {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+      }
+      history.replaceState(null, '', '#' + tab.getAttribute('aria-controls'));
+      if (focus) tab.focus();
+    }
+    for (const tab of tabs) {
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', event => {
+        const index = tabs.indexOf(tab);
+        const next = event.key === 'ArrowRight' ? (index+1)%tabs.length : event.key === 'ArrowLeft' ? (index+tabs.length-1)%tabs.length : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length-1 : -1;
+        if (next >= 0) { event.preventDefault(); activate(tabs[next], true); }
+      });
+    }
+    function selectHash() {
+      const match = tabs.find(tab => '#' + tab.getAttribute('aria-controls') === location.hash);
+      if (match) activate(match);
+    }
+    selectHash();
+    addEventListener('hashchange', selectHash);
+  </script>
 </body>
 </html>
